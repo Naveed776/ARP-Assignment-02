@@ -1,8 +1,7 @@
-
-#	Naveed Manzoor Afridi	| 5149575 |
-#	Abdul Rauf		| 5226212 |
-#	Group Name		| NR007   |
 # ARP Assignment No. 02
+	Naveed Manzoor Afridi	| 5149575 |
+	Abdul Rauf		| 5226212 |
+	Group Name		| NR007   |
 
 ## Description of the programs
 The project consists in the implementation of the simulated vision system through shared memory, according to the requirements specified in the PDF file of the assignment.
@@ -25,6 +24,7 @@ After compiling the program other two directories will be created:
 
 - the `bin` folder contains all the executable files
 - the `out` folder will contain the saved image as a *bmp* file
+- the `log` folder will contain the log files of master, processA and processB
 
 ## Processes
 The program is composed of 3 processes:
@@ -33,10 +33,15 @@ The program is composed of 3 processes:
 -  `master.c` will create the mutex semaphore that the two processes need to read and write consistent data and then launch the two processes as children. It will also monitor the status of the two processes and, in case one of them terminates unexpectedly, it will kill the other one and print an error message.
 
 
-## How to compile and run it
-I added one file .sh in order to simplify compiling and running all the processes.  
-To compile and run it: execute ```compile_run.sh```;  
-To correctly run the programs, you also need to install the *libbitmap* library (see the following paragraph).
+## Requirements
+The program requires the installation of the **konsole** program, of the **ncurses** library and of the **bitmap** library. To install the konsole program, simply open a terminal and type the following command:
+```console
+$ sudo apt-get install konsole
+```
+To install the ncurses library, type the following command:
+```console
+$ sudo apt-get install libncurses-dev
+```
 
 ## *libbitmap* installation and usage
 To work with the bitmap library, you need to follow these steps:
@@ -45,5 +50,11 @@ To work with the bitmap library, you need to follow these steps:
 3. Type ```make``` to compile the package.
 4. Run ```sudo make install``` to install the programs and any data files and documentation (sudo permission is required).
 5. Upon completing the installation, check that the files have been properly installed by navigating to ```/usr/local/lib```, where you should find the ```libbmp.so``` shared library ready for use.
-6. In order to properly compile programs which use the *libbitmap* library, you first need to notify the **linker** about the location of the shared library. To do that, you can simply add the following line at the end of your ```.bashrc``` file:      
-```export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"```
+6. In order to properly compile programs which use the *libbitmap* library, you first need to notify the **linker** about the location of the shared library. To do that, you can simply add the following line at the end of your ```.bashrc``` file: 
+```export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
+```
+
+## How to compile and run it
+I added one file .sh in order to simplify compiling and running all the processes.  
+To compile and run it: execute ```compile_run.sh```;  
+To correctly run the programs, you also need to install the *libbitmap* library (see the following paragraph).
